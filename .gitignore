@@ -1,0 +1,4 @@
+node_modules/
+static/dist/
+config/server/local.json5
+npm-debug.log

@@ -1,0 +1,4 @@
+/* The value of properties in this file corresponds to the environment variable
+ * name that will be loaded into the config. See https://www.npmjs.com/package/config.
+ */
+{}
