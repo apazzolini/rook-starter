@@ -27,7 +27,7 @@ class Home extends Component {
   };
 
   render() {
-    require('./Home.scss');
+    require('./Home.pcss');
 
     return (
       <div>
