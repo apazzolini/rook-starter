@@ -2,6 +2,7 @@ const projectRoot = process.cwd();
 const sourceRoot = `${projectRoot}/src`;
 
 module.exports = {
+
   verbose: false,
 
   routes: sourceRoot + '/views/routes.js',
@@ -13,4 +14,5 @@ module.exports = {
   html: {
     head: sourceRoot + '/views/_app/Head.js'
   }
+
 };

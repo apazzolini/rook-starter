@@ -28,7 +28,8 @@
     "rook": "git://github.com/apazzolini/rook.git"
   },
   "devDependencies": {
-    "concurrently": "1.0.0"
+    "concurrently": "1.0.0",
+    "nodemon": "^1.8.1"
   },
   "engines": {
     "node": "5.3.0",
