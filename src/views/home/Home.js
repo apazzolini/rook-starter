@@ -6,7 +6,7 @@ const mapStateToProps = (state) => ({
   random: state.random.toJS()
 });
 
-class Home extends Component {
+export class Home extends Component {
   static propTypes = {
     dispatch: PropTypes.func,
     random: PropTypes.shape({
