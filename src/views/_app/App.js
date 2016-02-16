@@ -7,8 +7,8 @@ const meta = {
 };
 
 const mapStateToProps = (state) => ({
-  loading: state.apiLoading.get('loading'),
-  loadError: state.apiLoading.get('loadError')
+  loading: state.apiRequest.get('loading'),
+  loadError: state.apiRequest.get('loadError')
 });
 
 class App extends Component {
