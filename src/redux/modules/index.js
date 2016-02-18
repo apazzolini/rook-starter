@@ -1,5 +1,6 @@
 // You must export your Redux modules keyed by their reducer name.
 export default {
+  clientRequestCounter: require('./clientRequestCounter'),
   random: require('./random')
 };
 

@@ -11,8 +11,10 @@ describe('redux', () => {
 
       it('handles loadOk', () => {
         const curDate = new Date().toString();
+
         const newState = reducer(initialState, {
           type: 'random/loadOk',
+          isOnServer: false,
           result: {
             number: 0.5,
             time: curDate
@@ -21,7 +23,8 @@ describe('redux', () => {
 
         expect(newState.toJS()).to.deep.equal({
           number: 0.5,
-          time: curDate
+          time: curDate,
+          loadedOnServer: false
         });
       });
     });

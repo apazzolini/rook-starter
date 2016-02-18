@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import * as Random from '../../redux/modules/random';
+import * as Actions from '../../redux/actions';
 
 const mapStateToProps = (state) => ({
-  random: state.random.toJS()
+  random: state.random.toJS(),
+  clientRequestCounter: state.clientRequestCounter.toJS()
 });
 
 export class Home extends Component {
@@ -11,19 +12,24 @@ export class Home extends Component {
     dispatch: PropTypes.func,
     random: PropTypes.shape({
       number: PropTypes.number,
-      time: PropTypes.date
+      time: PropTypes.date,
+      loadedOnServer: PropTypes.boolean
+    }),
+    clientRequestCounter: PropTypes.shape({
+      count: PropTypes.number
     })
   };
 
   static fetchData(getState, dispatch, location, params) {
-    if (!Random.selectors.currentNumber(getState())) {
-      return dispatch(Random.actions.loadNewRandom());
+    // Require a random number to be generated before rendering this component
+    if (!getState().random.get('number')) {
+      return dispatch(Actions.random.loadNewRandom());
     }
   }
 
   loadNewRandom = (e) => {
     e.preventDefault();
-    this.props.dispatch(Random.actions.loadNewRandom());
+    this.props.dispatch(Actions.random.loadNewRandom());
   };
 
   render() {
@@ -33,7 +39,9 @@ export class Home extends Component {
       <div>
         <p>
           Current Random Number: {this.props.random.number} <br/>
-          Generated at: {this.props.random.time}
+          Generated at: {this.props.random.time} <br/>
+          Generated on server? {this.props.random.loadedOnServer.toString()} <br/>
+          Number of client requests: {this.props.clientRequestCounter.count}
         </p>
 
         <p>
